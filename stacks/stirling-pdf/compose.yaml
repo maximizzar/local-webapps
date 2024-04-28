@@ -1,0 +1,20 @@
+name: 'stirling-pdf'
+services:
+  app:
+    image: 'frooodle/s-pdf:latest'
+    environment:
+      LANGS: de_DE
+      INSTALL_BOOK_AND_ADVANCED_HTML_OPS: true
+      DOCKER_ENABLE_SECURITY: false
+    volumes:
+      - 'logs:/logs'
+      - 'configs:/configs'
+      - 'tessdata:/usr/share/tessdata'
+    ports:
+      - '127.70.16.179:8080:8080'
+    restart: 'unless-stopped'
+
+volumes:
+  logs:
+  configs:
+  tessdata:

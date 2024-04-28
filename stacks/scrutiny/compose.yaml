@@ -1,0 +1,22 @@
+name: 'scrutiny'
+services:
+  app:
+    image: 'ghcr.io/analogj/scrutiny:master-omnibus'
+    restart: 'unless-stopped'
+    devices:
+      - /dev/sda
+      - /dev/sdb
+    cap_add:
+      - SYS_RAWIO
+    volumes:
+      - '/run/udev:/run/udev:ro'
+      - 'db:/opt/scrutiny/influxdb'
+      - 'config:/opt/scrutiny/config'
+    ports:
+      - '127.162.71.59:8086:8086'
+      - '127.162.71.59:8080:8080'
+    tty: true
+    stdin_open: true
+volumes:
+  db:
+  config:

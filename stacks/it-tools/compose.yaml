@@ -1,0 +1,12 @@
+name: 'it-tools'
+services:
+  app:
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 256M
+    image: 'corentinth/it-tools:latest'
+    ports:
+      - '127.71.132.194:80:80'
+    restart: 'unless-stopped'
